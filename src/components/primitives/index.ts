@@ -29,3 +29,8 @@ export {
 } from "./sheet/sheet";
 export { default as SocialLinks } from "./social-links/social-links";
 export { ThemeToggle } from "./theme-toggle/theme-toggle";
+export {
+  default as Navbar,
+  type NavbarProps,
+  type NavItem,
+} from "./navbar/navbar";

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { BrowserRouter } from "react-router-dom";
 import { Home, User, Briefcase, Code, Mail } from "lucide-react";
-import Navbar from "./Navbar";
+import Navbar from "./navbar";
 import { Button } from "@/components/primitives/button/button";
 
 const meta = {
-  title: "Navigation/Navbar",
+  title: "Primitives/Navbar",
   component: Navbar,
   decorators: [
     (Story) => (
