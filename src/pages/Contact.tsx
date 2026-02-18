@@ -1,6 +1,6 @@
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { Button } from "@/components/primitives/button/button";
-import ContactInfoCard from "@/components/cards/contact-info-card";
+import ContactInfoCard from "@/components/primitives/card/contact-info-card";
 import SocialLinks from "@/components/primitives/social-links/social-links";
 
 const Contact = () => {

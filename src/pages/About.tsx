@@ -1,4 +1,4 @@
-import StatCard from "@/components/cards/stat-card";
+import StatCard from "@/components/primitives/card/stat-card";
 
 const About = () => {
   const stats = [

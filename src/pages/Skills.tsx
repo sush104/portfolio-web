@@ -1,4 +1,4 @@
-import SkillCategoryCard from "@/components/cards/skill-category-card";
+import SkillCategoryCard from "@/components/primitives/card/skill-category-card";
 
 const skills = {
   "Frontend Development": [
