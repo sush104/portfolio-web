@@ -5,6 +5,7 @@ const About = () => {
     { value: "5+", label: "Years Experience" },
     { value: "50+", label: "Projects Completed" },
     { value: "10+", label: "Technologies" },
+    { value: "10+", label: "Certifications" },
   ];
 
   return (
@@ -34,8 +35,7 @@ const About = () => {
           </p>
           <p>
             When I'm not coding, you can find me exploring new technologies,
-            contributing to open-source projects, or sharing knowledge with the
-            developer community.
+            contributing to open source, or enjoying good TV shows.
           </p>
         </div>
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">

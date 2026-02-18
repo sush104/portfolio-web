@@ -8,7 +8,7 @@ const Home = () => {
           <img
             src="/profile.jpg"
             alt="Sushant Shelke"
-            className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-primary shadow-lg"
+            className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover border-4 border-primary shadow-lg"
           />
         </div>
         <h1 className="text-5xl md:text-7xl font-bold mb-6">
