@@ -35,3 +35,4 @@ export {
   type NavbarProps,
   type NavItem,
 } from "./navbar/navbar";
+export { default as Timeline } from "./timeline/timeline";
