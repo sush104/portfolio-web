@@ -1,15 +1,14 @@
 import SkillCategoryCard from "@/components/primitives/card/skill-category-card";
+import { SkillProgress } from "@/components/primitives";
+import { Code, ServerCog, Terminal, Users } from "lucide-react";
 
 const skills = {
   "Frontend Development": [
     "React",
     "TypeScript",
     "JavaScript",
-    "HTML/CSS",
     "Tailwind CSS",
     "Next.js",
-    "Vue.js",
-    "Responsive Design",
   ],
   "Backend Development": [
     "Node.js",
@@ -17,14 +16,12 @@ const skills = {
     "Python",
     "REST APIs",
     "GraphQL",
-    "Database Design",
     "Authentication",
   ],
   "Tools & Technologies": [
     "Git",
     "Docker",
     "VS Code",
-    "Figma",
     "Webpack",
     "Vite",
     "Jest",
@@ -34,8 +31,6 @@ const skills = {
     "Problem Solving",
     "Team Collaboration",
     "Communication",
-    "Agile/Scrum",
-    "Code Review",
     "Mentoring",
   ],
 };
@@ -52,40 +47,75 @@ const Skills = () => {
           in modern web development.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {Object.entries(skills).map(([category, skillList]) => (
-            <SkillCategoryCard
-              key={category}
-              category={category}
-              skills={skillList}
-            />
-          ))}
-        </div>
-
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold mb-6">Proficiency Levels</h3>
-          <div className="max-w-3xl mx-auto space-y-6">
-            {[
-              { name: "React & TypeScript", level: 95 },
-              { name: "Frontend Development", level: 90 },
-              { name: "Backend Development", level: 80 },
-              { name: "UI/UX Design", level: 75 },
-              { name: "DevOps & Deployment", level: 70 },
-            ].map((item) => (
-              <div key={item.name}>
-                <div className="flex justify-between mb-2">
-                  <span className="font-medium">{item.name}</span>
-                  <span className="text-muted-foreground">{item.level}%</span>
-                </div>
-                <div className="w-full bg-secondary rounded-full h-2">
-                  <div
-                    className="bg-primary h-2 rounded-full transition-all duration-500"
-                    style={{ width: `${item.level}%` }}
-                  ></div>
-                </div>
-              </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="md:col-span-2 space-y-6">
+            {Object.entries(skills).map(([category, skillList]) => (
+              <SkillCategoryCard
+                key={category}
+                category={category}
+                skills={skillList}
+              />
             ))}
           </div>
+
+          <aside className="md:col-span-1">
+            <div className="sticky top-28 space-y-6">
+              <div>
+                <h4 className="text-lg font-semibold mb-3 text-center">
+                  Proficiency Overview
+                </h4>
+                <div className="space-y-4">
+                  <SkillProgress
+                    name="React & TypeScript"
+                    level={95}
+                    icon={<Code className="h-4 w-4" />}
+                    color="from-pink-500 to-indigo-500"
+                  />
+                  <SkillProgress
+                    name="Frontend Development"
+                    level={90}
+                    icon={<Terminal className="h-4 w-4" />}
+                    color="from-violet-500 to-pink-500"
+                  />
+                  <SkillProgress
+                    name="Backend Development"
+                    level={80}
+                    icon={<ServerCog className="h-4 w-4" />}
+                    color="from-emerald-400 to-teal-500"
+                  />
+                  <SkillProgress
+                    name="Collaboration"
+                    level={85}
+                    icon={<Users className="h-4 w-4" />}
+                    color="from-yellow-400 to-amber-500"
+                  />
+                </div>
+              </div>
+
+              <div className="p-6 bg-card rounded-lg shadow">
+                <h4 className="text-lg font-semibold mb-3">Tools & Tags</h4>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "React",
+                    "TypeScript",
+                    "Tailwind",
+                    "Node.js",
+                    "Docker",
+                    "Git",
+                    "Vite",
+                    "Jest",
+                  ].map((t) => (
+                    <span
+                      key={t}
+                      className="px-3 py-1 rounded-full bg-muted/30 text-sm"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
