@@ -1,3 +1,4 @@
+import { DownloadCV } from "@/components/primitives";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -30,6 +31,9 @@ const Home = () => {
           >
             Get In Touch
           </Link>
+        </div>
+        <div className="mt-6 flex justify-center">
+          <DownloadCV filePath="/cv.pdf" size="lg" />
         </div>
       </div>
     </section>
