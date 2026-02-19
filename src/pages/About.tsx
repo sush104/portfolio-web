@@ -71,30 +71,41 @@ const About = () => {
           </div>
 
           <div className="md:col-span-2">
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-pink-500">
-              About Me
-            </h2>
-
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 ">About Me</h2>
             <div className="space-y-6 text-lg text-muted-foreground">
               <p>
-                Hello! I'm a web developer with a passion for creating
-                beautiful, functional, and user-friendly websites. With
-                expertise in modern web technologies, I bring ideas to life
-                through clean code and thoughtful design.
+                Hello — I'm Sushant Shelke, a Manager at Deloitte with 5+ years'
+                experience as a full-stack developer, based in Glasgow, UK. I
+                design and deliver responsive, performance-focused web
+                applications that balance clean, maintainable code with
+                thoughtful user experience and strong accessibility practices.
+                My core technical toolkit includes React, TypeScript, JavaScript
+                Next.JS and Python, and I work extensively with GraphQL, AWS and
+                Docker to build scalable, resilient solutions for enterprise
+                clients.
               </p>
               <p>
-                I specialize in building responsive web applications using
-                React, TypeScript, and modern CSS frameworks. My goal is to
-                create seamless digital experiences that make a difference.
+                In my current role I lead cross-functional teams through the
+                full delivery lifecycle — from shaping technical roadmaps and
+                defining architecture to implementing CI/CD pipelines and
+                operationalising services in production. I prioritise testing,
+                observability and performance optimisation to reduce risk and
+                improve developer velocity, while ensuring solutions meet
+                security and compliance expectations in regulated environments.
+                I also mentor engineers, run design and code reviews, and
+                promote best practices that improve code quality and team
+                effectiveness.
               </p>
               <p>
-                When I'm not coding, you can find me exploring new technologies,
-                contributing to open source, or enjoying good TV shows.
+                I have experience translating complex business requirements into
+                pragmatic technical solutions, collaborating closely with
+                product managers, designers and stakeholders to deliver
+                customer-centric outcomes.
               </p>
               <p>
-                I specialize in building responsive web applications using
-                React, TypeScript, and modern CSS frameworks. My goal is to
-                create seamless digital experiences that make a difference.
+                Outside work I enjoy playing video games and keeping active
+                through sports — particularly badminton and volleyball — as well
+                as regular gym sessions.
               </p>
             </div>
 
