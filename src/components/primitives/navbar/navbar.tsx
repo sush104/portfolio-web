@@ -52,7 +52,13 @@ const Navbar = ({
   };
 
   const isActive = (href: string) => {
-    return location.pathname === href;
+    // root exact match, other routes match prefix so nested routes stay highlighted
+    if (href === "/") return location.pathname === "/";
+    return (
+      location.pathname === href ||
+      location.pathname.startsWith(href + "/") ||
+      location.pathname.startsWith(href + "?")
+    );
   };
 
   return (
@@ -96,9 +102,12 @@ const Navbar = ({
                   to={item.href}
                   onClick={() => handleNavClick(item)}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-primary relative group inline-flex items-center gap-2",
-                    isActive(item.href) && "text-primary",
+                    "text-medium font-medium transition-colors hover:text-primary relative inline-flex items-center gap-2 px-2 py-1 rounded-md transition-all",
+                    isActive(item.href)
+                      ? "text-primary bg-primary/10 ring-1 ring-primary/10"
+                      : "",
                   )}
+                  aria-current={isActive(item.href) ? "page" : undefined}
                 >
                   {item.icon}
                   {item.name}
@@ -139,9 +148,10 @@ const Navbar = ({
                     to={item.href}
                     onClick={() => handleNavClick(item)}
                     className={cn(
-                      "text-lg font-medium transition-colors hover:text-primary py-2 inline-flex items-center gap-2",
-                      isActive(item.href) && "text-primary",
+                      "text-lg font-medium transition-colors hover:text-primary py-2 inline-flex items-center gap-2 px-2 rounded-md",
+                      isActive(item.href) ? "text-primary bg-primary/10" : "",
                     )}
+                    aria-current={isActive(item.href) ? "page" : undefined}
                   >
                     {item.icon}
                     {item.name}
