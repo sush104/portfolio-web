@@ -17,21 +17,13 @@ export interface NavItem {
 }
 
 export interface NavbarProps {
-  /** Brand name or logo */
   brand?: string | ReactNode;
-  /** URL for brand/logo link */
   brandHref?: string;
-  /** Navigation items */
   navItems?: NavItem[];
-  /** Show theme toggle button */
   showThemeToggle?: boolean;
-  /** Additional actions/buttons to display */
   actions?: ReactNode;
-  /** Custom className for the navbar */
   className?: string;
-  /** Make navbar sticky instead of fixed */
   sticky?: boolean;
-  /** Callback when navigation item is clicked */
   onNavItemClick?: (item: NavItem) => void;
 }
 
