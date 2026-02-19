@@ -38,3 +38,4 @@ export {
 export { default as Timeline } from "./timeline/timeline";
 export { default as HobbyCard } from "./card/hobby-card";
 export { default as Badge } from "./badge/badge";
+export { default as SkillProgress } from "./skill-progress/skill-progress";
