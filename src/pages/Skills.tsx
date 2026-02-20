@@ -91,29 +91,6 @@ const Skills = () => {
                   />
                 </div>
               </div>
-
-              <div className="p-6 bg-card rounded-lg shadow">
-                <h4 className="text-lg font-semibold mb-3">Tools & Tags</h4>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "React",
-                    "TypeScript",
-                    "Tailwind",
-                    "Node.js",
-                    "Docker",
-                    "Git",
-                    "Vite",
-                    "Jest",
-                  ].map((t) => (
-                    <span
-                      key={t}
-                      className="px-3 py-1 rounded-full bg-muted/30 text-sm"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
             </div>
           </aside>
         </div>
