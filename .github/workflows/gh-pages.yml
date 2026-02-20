@@ -19,11 +19,15 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Clean cache (avoid optional native binding issues)
+      - name: Clean workspace & cache (avoid optional native binding issues)
         run: |
+          rm -rf node_modules || true
+          rm -f package-lock.json || true
           npm cache clean --force || true
 
       - name: Install dependencies (skip optional)
+        env:
+          npm_config_optional: false
         run: npm ci --no-optional
 
       - name: Build
