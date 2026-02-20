@@ -10,6 +10,9 @@ import {
 import { ThemeToggle } from "@/components/primitives/theme-toggle/theme-toggle";
 import { cn } from "@/lib/utils";
 
+// Resolve public asset URL relative to Vite base
+const profileUrl = new URL("/profile.jpg", import.meta.env.BASE_URL).href;
+
 export interface NavItem {
   name: string;
   href: string;
@@ -74,7 +77,7 @@ const Navbar = ({
         <div className="flex items-center gap-3 flex-shrink-0">
           <Link to={brandHref}>
             <img
-              src="/profile.jpg"
+              src={profileUrl}
               alt="Profile"
               className="w-10 h-10 rounded-full object-cover border-2 border-primary"
             />
