@@ -2,6 +2,10 @@ import { SocialLinks } from "@/components/primitives";
 import { Link } from "react-router-dom";
 import { ArrowRight, Download } from "lucide-react";
 
+// Resolve public asset URLs relative to Vite base (works for repo or user sites)
+const profileUrl = new URL("/profile.jpg", import.meta.env.BASE_URL).href;
+const cvUrl = new URL("/cv.pdf", import.meta.env.BASE_URL).href;
+
 const Home = () => {
   return (
     <section className="min-h-screen flex items-center justify-center px-6 pt-16 bg-gradient-to-b from-transparent via-muted/5 to-transparent">
@@ -10,7 +14,7 @@ const Home = () => {
           <div className="relative">
             <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary to-pink-500 blur opacity-40" />
             <img
-              src="/profile.jpg"
+              src={profileUrl}
               alt="Sushant Shelke"
               className="relative w-48 h-48 md:w-74 md:h-74 rounded-full object-cover border-4 border-card shadow-2xl"
             />
@@ -42,7 +46,7 @@ const Home = () => {
           </Link>
 
           <a
-            href="/cv.pdf"
+            href={cvUrl}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border hover:bg-muted/10 transition-colors"
             download
           >
