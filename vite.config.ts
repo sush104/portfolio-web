@@ -14,6 +14,8 @@ const dirname =
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
+  // Set base to repository name so asset URLs are correct when deployed to GitHub Pages
+  base: "/portfolio-web/",
   plugins: [react()],
   resolve: {
     alias: {
