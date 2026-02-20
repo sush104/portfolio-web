@@ -19,8 +19,12 @@ jobs:
         with:
           node-version: "18"
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Clean cache (avoid optional native binding issues)
+        run: |
+          npm cache clean --force || true
+
+      - name: Install dependencies (skip optional)
+        run: npm ci --no-optional
 
       - name: Build
         run: npm run build
