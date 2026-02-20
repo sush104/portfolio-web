@@ -43,7 +43,7 @@ const Home = () => {
 
           <a
             href="/cv.pdf"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-border hover:bg-muted/10 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border hover:bg-muted/10 transition-colors"
             download
           >
             <Download className="w-4 h-4" />
