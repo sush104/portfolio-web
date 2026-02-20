@@ -105,6 +105,15 @@ const Contact = () => {
                 <Send className="h-4 w-4 mr-2" />
                 Send Message
               </Button>
+              <div className="text-sm text-muted-foreground text-center">
+                Or email me directly at{" "}
+                <a
+                  href="mailto:sush104@outlook.com"
+                  className="text-primary underline"
+                >
+                  sush104@outlook.com
+                </a>
+              </div>
             </form>
           </div>
         </div>
