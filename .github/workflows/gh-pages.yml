@@ -19,22 +19,17 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Enable Corepack and use pnpm
+      - name: Clean node modules and npm cache
         run: |
-          corepack enable
-          corepack prepare pnpm@latest --activate
+          rm -rf node_modules || true
+          rm -f package-lock.json || true
+          npm cache clean --force || true
 
-      - name: Install dependencies with pnpm
-        run: |
-          # prefer frozen lockfile if present, otherwise install normally
-          if [ -f pnpm-lock.yaml ]; then
-            pnpm install --frozen-lockfile
-          else
-            pnpm install
-          fi
+      - name: Install dependencies (npm)
+        run: npm ci
 
-      - name: Build with pnpm
-        run: pnpm run build
+      - name: Build (npm)
+        run: npm run build
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
