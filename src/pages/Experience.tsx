@@ -12,20 +12,30 @@ const Experience = () => {
       description: (
         <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-2">
           <li>
-            Managed full-stack development teams utilising JavaScript, Python,
-            TypeScript, and R to deliver robust web applications.
+            Managing full-stack development teams utilising React Js, Next Js,
+            JavaScript, Python, TypeScript to deliver robust web applications.
           </li>
           <li>
-            Designed and implemented frontend components for live AWS hosted
-            product using React.js.
-          </li>
-          <li>
-            Oversaw front-end development using React, Next, TypeScript,
-            Tailwind CSS, and shadcn design principles.
+            Leading front-end development using React, Next, TypeScript,
+            Tailwind CSS, and Chakra UI, shadcn design principles.
           </li>
           <li>
             Led teams in implementing CI/CD pipelines and cloud-based solutions
             on AWS, leveraging Docker and microservices architecture.
+          </li>
+          <li>
+            Designed and implemented various frontend components for live AWS
+            hosted product using React.js.
+          </li>
+          <li>
+            Designed and developed a comprehensive onboarding walkthrough for
+            new users, significantly improving product adoption and initial user
+            experience.
+          </li>
+          <li>
+            Implemented diverse data visualisations on the product dashboard to
+            effectively showcase analysed data, facilitating clearer insights
+            and data-driven decision-making.
           </li>
         </ul>
       ),
@@ -69,50 +79,33 @@ const Experience = () => {
       description: (
         <ul className="list-disc pl-5 text-sm text-muted-foreground space-y-2">
           <li>
-            Integrated a new feature into an internal product for T-Mobile, a
-            market-leading player in the telecom domain, that enabled the
-            tracking and generation of consolidated reports for billed customers
-            using Python and JavaScript.
+            Engineered a new feature for a T-Mobile internal product using
+            Python and JavaScript, enabling automated tracking and generation of
+            consolidated reports for billed customers, improving data
+            accessibility and reporting efficiency.
           </li>
           <li>
-            Worked on a visualization screen to show various aspects of
-            generated data insights onto the user screen in the form of charts,
-            pies, and graphs using React to provide stakeholders with a clear
-            understanding of the key metrics.
-          </li>
-          Utilized agile methodologies to ensure that the project was completed
-          on time with better decision- making while maintaining a high level of
-          quality and meeting all key milestones.
-          <li>
-            Implemented key components in React JS for Johnson & Johnson's
-            healthcare domain, utilizing react routes, custom hooks, and Axios
-            to showcase real-time user health data and scientist outcomes from
-            the database on the web browser.
+            Designed and developed critical dashboard for Johnson & Johnson's
+            healthcare platform to display real-time user health data and
+            scientist outcomes, supporting critical research and patient care.
           </li>
           <li>
-            Worked on a highly eﬀective screen development for a three-step
-            stepper ETL data flow, utilizing React, HTML, CSS, and JavaScript to
-            create intuitive screens and demonstrated a 23% increase in
-            eﬃciency.
+            Constructed a scalable and efficient end-to-end data pipeline using
+            object-oriented Python and R, enabling robust comparison and
+            analysis between heterogeneous databases to drive reliable business
+            logic and insights.
           </li>
           <li>
-            Developed an end-to-end pipeline, writing, utilizing object-oriented
-            Python and R programming to apply comparison between two
-            heterogeneous databases with scalable, eﬃcient, and reliable
-            business logic.
+            Designed and developed enterprise-level UI screens for a
+            microservice web application using React, Node, Python, and R,
+            providing a rich user experience for monitoring heterogeneous
+            database migrations, contributing to revenue growth and achieving
+            19% faster performance than traditional error reporting tools.
           </li>
           <li>
-            Designing, Developing UI screens for the rich user experience
-            enterprise-level microservice web application as solutions for
-            monitoring data migration of two heterogenous databases using react,
-            node, python and R which gains revenue for the business and is 19%
-            faster performance than traditional data migration error reporting
-            tools.
-          </li>
-          <li>
-            Worked on a user behavior screen which shows login patterns using
-            visualizations along with user history runs on the platform with the
-            last 5 performed operations.
+            Created a user behaviour analytics screen with visualisations of
+            login patterns and user history (including the last 5 performed
+            operations), providing critical insights into platform engagement.
           </li>
         </ul>
       ),
