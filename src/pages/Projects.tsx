@@ -3,17 +3,45 @@ import ProjectCard from "@/components/primitives/card/project-card";
 const projects = [
   {
     id: 1,
+    title: "Crisis Event Ranking and Summarization",
+    description:
+      "A Python jupyter notebook that ranks and summarizes crisis events using natural language processing techniques, providing concise insights for emergency response teams.",
+    technologies: ["Python", "NLP", "Jupyter Notebook", "Data Analysis"],
+    image:
+      "https://images.unsplash.com/photo-1585829364536-ce348dd72ebc?q=80&w=1740&auto=format&fit=crop",
+    github:
+      "https://github.com/sush104/Crisis_Event_Ranking_and_Summarization.git",
+  },
+  {
+    id: 2,
+    title: "Online Bike Rental System (Manager Dashboard)",
+    description:
+      "A react application that serves as a manager dashboard for an online bike rental system, allowing managers to oversee bike inventory, rental transactions, and customer data efficiently. Find it in 'feature/sushant' repo",
+    technologies: [
+      "React",
+      "JavaScript",
+      "CSS",
+      "Material UI",
+      "Authentication",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1639638794534-c964bf817a0f?q=80&w=1740&auto=format&fit=crop",
+    github:
+      "https://github.com/sush104/Web_Development_ReactJS_Android_Python.git",
+  },
+  {
+    id: 3,
     title: "World Clock",
     description:
       "A beautiful world clock application showing multiple time zones with real-time updates and timezone conversion.",
     technologies: ["React", "JavaScript", "CSS", "React-Icons", "Date-fns"],
     image:
-      "https://images.unsplash.com/photo-1501139083538-0139583c060f?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1525562929550-63ef340cfe1d?q=80&w=1548&auto=format&fit=crop",
     github: "https://github.com/sush104/Clocks",
     demo: "https://sush104.github.io/Clocks/",
   },
   {
-    id: 2,
+    id: 4,
     title: "React Calculator",
     description:
       "A fully functional calculator app built with React, featuring basic arithmetic operations and a clean, intuitive interface.",
@@ -23,15 +51,25 @@ const projects = [
     github: "https://github.com/sush104/React-Calculator",
   },
   {
-    id: 3,
-    title: "Weather Dashboard",
+    id: 5,
+    title: "React ToDo App",
     description:
-      "Beautiful weather application with detailed forecasts and interactive maps.",
-    technologies: ["React", "Weather API", "Chart.js", "CSS"],
+      "Simple and elegant ToDo application built with React, featuring task management.",
+    technologies: ["React", "Rechart", "Material UI", "Authentication"],
     image:
-      "https://images.unsplash.com/photo-1601134467661-3d775b999c8b?w=600&h=400&fit=crop",
-    github: "#",
-    demo: "#",
+      "https://images.unsplash.com/photo-1641261689141-ee46b8a0470c?q=80&w=1740&auto=format&fit=crop",
+    github: "https://github.com/sush104/ToDoAPP-withReactFlip",
+  },
+  {
+    id: 6,
+    title: "Twitter Data Analysis",
+    description:
+      "A Python project that analyzes Twitter data to calculate the newsworthiness of tweets, providing insights into trending topics and user engagement.",
+    technologies: ["Python", "Data Analysis", "Twitter API", "NLP"],
+    image:
+      "https://images.unsplash.com/photo-1684610529682-553625a1ffed?q=80&w=1160&auto=format&fit=crop",
+    github:
+      "https://github.com/sush104/Twitter_Data_Analysis_and_Newsworthiness-_Calculation.git",
   },
 ];
 
