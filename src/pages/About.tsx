@@ -12,7 +12,7 @@ const About = () => {
     { value: "5+", label: "Years Experience" },
     { value: "50+", label: "Projects Completed" },
     { value: "10+", label: "Technologies" },
-    { value: "10+", label: "Certifications" },
+    //{ value: "10+", label: "Certifications" },
   ];
 
   return (
@@ -109,7 +109,7 @@ const About = () => {
               </p>
             </div>
 
-            <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-6 ">
               {stats.map((stat) => (
                 <StatCard
                   key={stat.label}
