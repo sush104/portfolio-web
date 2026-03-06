@@ -63,10 +63,18 @@ const CardDescription = ({ children, className }: CardDescriptionProps) => {
 interface CardContentProps {
   children: ReactNode;
   className?: string;
+  onClick?: () => void;
 }
 
-const CardContent = ({ children, className }: CardContentProps) => {
-  return <div className={cn("p-6 pt-0", className)}>{children}</div>;
+const CardContent = ({ children, className, onClick }: CardContentProps) => {
+  return (
+    <div
+      onClick={onClick}
+      className={cn("p-6 pt-0", onClick && "cursor-pointer", className)}
+    >
+      {children}
+    </div>
+  );
 };
 
 interface CardFooterProps {
@@ -82,14 +90,20 @@ interface CardImageProps {
   src: string;
   alt: string;
   className?: string;
+  onClick?: () => void;
 }
 
-const CardImage = ({ src, alt, className }: CardImageProps) => {
+const CardImage = ({ src, alt, className, onClick }: CardImageProps) => {
   return (
     <img
       src={src}
       alt={alt}
-      className={cn("w-full h-48 object-cover rounded-t-lg", className)}
+      onClick={onClick}
+      className={cn(
+        "w-full h-48 object-cover rounded-t-lg",
+        onClick && "cursor-pointer",
+        className,
+      )}
     />
   );
 };
