@@ -1,4 +1,5 @@
-// AWS SDK v3 — built into Lambda Node.js 18, no install needed
+// Reference copy of the Lambda deployed in AWS console as app.mjs
+
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
 import { DynamoDBDocumentClient, ScanCommand } from "@aws-sdk/lib-dynamodb";
 
@@ -6,8 +7,6 @@ const TABLE = process.env.EXPERIENCE_TABLE_NAME || "portfolio-experience";
 const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || "https://sush104.github.io";
 const LOCAL_ORIGINS = [
   "http://localhost:5173",
-  "http://127.0.0.1:5173",
-  "http://localhost:3000",
 ];
 
 const ddb = DynamoDBDocumentClient.from(new DynamoDBClient({}));
