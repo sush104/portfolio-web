@@ -33,6 +33,8 @@ export const Default: Story = {
   },
   args: {
     title: "Example Modal",
+    open: false,
+    onClose: () => {},
   },
 };
 
@@ -46,5 +48,7 @@ export const Open: Story = {
   ),
   args: {
     title: "Open Modal",
+    open: true,
+    onClose: () => {},
   },
 };

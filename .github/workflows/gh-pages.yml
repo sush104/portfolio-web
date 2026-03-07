@@ -8,7 +8,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # required to push to gh-pages branch
+      contents: write
 
     steps:
       - name: Checkout
