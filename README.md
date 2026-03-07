@@ -2,6 +2,30 @@
 
 This project is a modern, responsive personal portfolio website built with **React**, **TypeScript**, and **Vite**. It is designed to showcase your professional profile, projects, skills, and contact information in a visually appealing and user-friendly manner.
 
+### Tech Stack
+
+| Layer              | Technology                                                            |
+| ------------------ | --------------------------------------------------------------------- |
+| Framework          | React 19 + TypeScript                                                 |
+| Build tool         | Vite                                                                  |
+| Styling            | Tailwind CSS + shadcn/ui                                              |
+| Component explorer | Storybook                                                             |
+| Deployment         | GitHub Pages via GitHub Actions                                       |
+| Database           | AWS DynamoDB (Experience data)                                        |
+| API                | AWS API Gateway (HTTP API) + AWS Lambda (Node.js 24)                  |
+| CI/CD              | GitHub Actions — builds with `VITE_API_BASE` injected from secrets |
+
+### AWS Architecture (Experience Page)
+
+```
+Browser → API Gateway (eu-west-2) → Lambda (Node.js 24) → DynamoDB
+```
+
+- **DynamoDB table:** `portfolio-experience` — stores experience items as JSON
+- **Lambda function:** `portfolio-experience-fn` — scans the table and returns sorted items
+- **API Gateway:** `portfolio-api` — HTTP API with `GET /experience` route and CORS configured
+- **Environment variable:** `VITE_API_BASE` is set at build time via `API_BASE_URL` GitHub Actions secret
+
 ### Key Features
 
 - ⚡️ **Fast and Modern Stack:** Built with React and Vite for lightning-fast performance and a smooth developer experience.
@@ -10,22 +34,16 @@ This project is a modern, responsive personal portfolio website built with **Rea
 - 🧩 **Component-Based Architecture:** Reusable and modular React components for easy customization and scalability.
 - 📱 **Responsive Design:** Optimized for all devices—desktop, tablet, and mobile.
 - 🌙 **Dark/Light Theme Toggle:** Users can switch between light and dark modes.
-- 🛠️ **Easy Customization:** Update your content, images, and styles with minimal effort.
+- 🛠️ **Easy Customization:** Update content, images, and styles with minimal effort.
 
 ### Main Sections
 
 - **Home:** A brief introduction and welcome message.
-- **About:** Information about your background, experience, and interests.
-- **Projects:** A showcase of your best work, with descriptions and links.
-- **Skills:** A categorized list of your technical and soft skills.
+- **About:** Information about background, experience, and interests.
+- **Projects:** A showcase of best work, with descriptions and links.
+- **Skills:** A categorized list of technical and soft skills.
+- **Experience**: An Experience page to showcase roles and responsibility over period of time.
 - **Contact:** Ways for visitors to get in touch with you (email, social links, etc.).
-
-### How to Use
-
-1. **Clone the repository and install dependencies.**
-2. **Customize the content** in the `src/pages/` and `src/components/` folders to reflect your own profile, projects, and skills.
-3. **Add your images** to the `src/assets/` folder.
-4. **Deploy** the site to your preferred hosting platform (Vercel, Netlify, GitHub Pages, etc.).
 
 # Folder structure
 
