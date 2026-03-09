@@ -8,47 +8,59 @@ import Skills from "./pages/Skills";
 import Contact from "./pages/Contact";
 import Experience from "./pages/Experience";
 import NotFound from "./pages/NotFound";
+import Admin from "./pages/Admin";
 import "./App.css";
 
 function App() {
   return (
-    <div className="min-h-screen">
-      <Navbar
-        navItems={[
-          { name: "Home", href: "/", icon: <Home className="h-4 w-4" /> },
-          { name: "About", href: "/about", icon: <User className="h-4 w-4" /> },
-          {
-            name: "Experience",
-            href: "/experience",
-            icon: <Briefcase className="h-4 w-4" />,
-          },
-          {
-            name: "Projects",
-            href: "/projects",
-            icon: <Folder className="h-4 w-4" />,
-          },
-          {
-            name: "Skills",
-            href: "/skills",
-            icon: <Code className="h-4 w-4" />,
-          },
-          {
-            name: "Contact",
-            href: "/contact",
-            icon: <Mail className="h-4 w-4" />,
-          },
-        ]}
+    <Routes>
+      {/* Admin — no navbar */}
+      <Route path="/admin" element={<Admin />} />
+
+      {/* Public portfolio */}
+      <Route
+        path="*"
+        element={
+          <div className="min-h-screen">
+            <Navbar
+              navItems={[
+                { name: "Home", href: "/", icon: <Home className="h-4 w-4" /> },
+                { name: "About", href: "/about", icon: <User className="h-4 w-4" /> },
+                {
+                  name: "Experience",
+                  href: "/experience",
+                  icon: <Briefcase className="h-4 w-4" />,
+                },
+                {
+                  name: "Projects",
+                  href: "/projects",
+                  icon: <Folder className="h-4 w-4" />,
+                },
+                {
+                  name: "Skills",
+                  href: "/skills",
+                  icon: <Code className="h-4 w-4" />,
+                },
+                {
+                  name: "Contact",
+                  href: "/contact",
+                  icon: <Mail className="h-4 w-4" />,
+                },
+              ]}
+            />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/experience" element={<Experience />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/skills" element={<Skills />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
+        }
       />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/experience" element={<Experience />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </div>
+    </Routes>
   );
 }
 
