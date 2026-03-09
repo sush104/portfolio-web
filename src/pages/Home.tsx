@@ -10,7 +10,7 @@ const Home = () => {
           <div className="relative">
             <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary to-pink-500 blur opacity-40" />
             <img
-              src={"./profile.jpg"}
+              src={`${import.meta.env.BASE_URL}profile.jpg`}
               alt="Sushant Shelke"
               className="relative w-48 h-48 md:w-74 md:h-74 rounded-full object-cover border-4 border-card shadow-2xl"
             />
@@ -42,7 +42,7 @@ const Home = () => {
           </Link>
 
           <a
-            href={"./cv.pdf"}
+            href={`${import.meta.env.BASE_URL}cv.pdf`}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border hover:bg-muted/10 transition-colors"
             download
           >
