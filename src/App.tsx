@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { Home, User, Folder, Briefcase, Code, Mail } from "lucide-react";
+import { Home, User, Folder, Briefcase, Code, Mail, BookOpen } from "lucide-react";
 import { Navbar } from "./components/primitives";
 import HomePage from "./pages/Home";
 import About from "./pages/About";
@@ -7,6 +7,7 @@ import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
 import Contact from "./pages/Contact";
 import Experience from "./pages/Experience";
+import Blogs from "./pages/Blogs";
 import NotFound from "./pages/NotFound";
 import Admin from "./pages/Admin";
 import "./App.css";
@@ -46,6 +47,11 @@ function App() {
                   href: "/contact",
                   icon: <Mail className="h-4 w-4" />,
                 },
+                {
+                  name: "Blogs",
+                  href: "/blogs",
+                  icon: <BookOpen className="h-4 w-4" />,
+                },
               ]}
             />
             <Routes>
@@ -55,6 +61,7 @@ function App() {
               <Route path="/projects" element={<Projects />} />
               <Route path="/skills" element={<Skills />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/blogs" element={<Blogs />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
