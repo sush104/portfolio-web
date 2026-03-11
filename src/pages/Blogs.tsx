@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import BlogCard, { type BlogPost } from "@/components/primitives/card/blog-card";
 import Modal from "@/components/primitives/modal/modal";
-import { Plane, Monitor } from "lucide-react";
+import { Plane, Monitor, X, ZoomIn } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const API_BASE = (import.meta.env.VITE_API_BASE as string | undefined)?.replace(/\/$/, "");
@@ -20,6 +20,7 @@ const Blogs = () => {
   const [error, setError] = useState(false);
   const [activeTab, setActiveTab] = useState<Tab>("all");
   const [selected, setSelected] = useState<BlogPost | null>(null);
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
 
   useEffect(() => {
     if (!API_BASE) { setLoading(false); setError(true); return; }
@@ -79,14 +80,44 @@ const Blogs = () => {
 
       {/* Blog detail modal */}
       <Modal open={!!selected} onClose={() => setSelected(null)} title={selected?.title}>
+
+      {/* Lightbox */}
+      {lightboxSrc && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/90"
+          onClick={() => setLightboxSrc(null)}
+        >
+          <button
+            className="absolute top-4 right-4 text-white/70 hover:text-white transition-colors"
+            onClick={() => setLightboxSrc(null)}
+            aria-label="Close image"
+          >
+            <X className="w-7 h-7" />
+          </button>
+          <img
+            src={lightboxSrc}
+            alt="Full size"
+            className="max-w-[95vw] max-h-[95vh] object-contain rounded-md shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
         {selected && (
           <div className="space-y-4">
             {selected.coverImage && (
-              <img
-                src={selected.coverImage}
-                alt={selected.title}
-                className="w-full h-56 object-cover rounded-md"
-              />
+              <div
+                className="relative group cursor-zoom-in"
+                onClick={() => setLightboxSrc(selected.coverImage!)}
+              >
+                <img
+                  src={selected.coverImage}
+                  alt={selected.title}
+                  className="w-full h-56 object-cover rounded-md"
+                />
+                <div className="absolute inset-0 flex items-center justify-center rounded-md bg-black/0 group-hover:bg-black/30 transition-colors">
+                  <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-lg" />
+                </div>
+              </div>
             )}
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               {selected.date && <span>📅 {selected.date}</span>}
