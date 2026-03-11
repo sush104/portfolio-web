@@ -11,7 +11,7 @@ type Tab = "all" | "travel" | "tech";
 const TABS: { id: Tab; label: string; icon: React.ReactNode }[] = [
   { id: "all", label: "All Posts", icon: null },
   { id: "travel", label: "Travel Blogs", icon: <Plane className="w-4 h-4" /> },
-  { id: "tech", label: "Tech Vlogs", icon: <Monitor className="w-4 h-4" /> },
+  { id: "tech", label: "Tech Blogs", icon: <Monitor className="w-4 h-4" /> },
 ];
 
 const Blogs = () => {
