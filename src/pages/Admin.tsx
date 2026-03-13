@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/primitives/button/button";
 import {
   Card,
@@ -6,11 +6,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/primitives/card/card";
-import { LogOut, Briefcase, BookOpen } from "lucide-react";
+import { LogOut, Briefcase, BookOpen, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ExperienceTab } from "./admin/ExperienceTab";
 import { BlogsTab } from "./admin/BlogsTab";
-import { type AdminTab, ADMIN_PASSWORD } from "./admin/types";
+import { type AdminTab, ADMIN_PASSWORD, API_BASE, ADMIN_KEY, apiHeaders } from "./admin/types";
 
 const Admin = () => {
   const [authed, setAuthed] = useState(false);
@@ -18,6 +18,15 @@ const Admin = () => {
   const [pwError, setPwError] = useState(false);
   const [activeTab, setActiveTab] = useState<AdminTab>("experience");
   const [apiError, setApiError] = useState("");
+  const [visitorCount, setVisitorCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!authed || !API_BASE || !ADMIN_KEY) return;
+    fetch(`${API_BASE}/stats`, { headers: apiHeaders(ADMIN_KEY) })
+      .then((r) => r.json())
+      .then((d) => setVisitorCount(d.count ?? 0))
+      .catch(() => {});
+  }, [authed]);
 
   const handleLogin = () => {
     if (pwInput === ADMIN_PASSWORD) { setAuthed(true); setPwError(false); }
@@ -60,6 +69,16 @@ const Admin = () => {
             <LogOut className="w-4 h-4 mr-2" /> Logout
           </Button>
         </div>
+
+        {/* Visitor count */}
+          <div className="inline-flex items-center gap-3 rounded-lg border border-border bg-card px-5 py-3 w-fit">
+            <Users className="w-5 h-5 text-muted-foreground" />
+            <div>
+              <p className="text-xs text-muted-foreground leading-none mb-1">Total Sessions</p>
+              <p className="text-2xl font-bold leading-none">{visitorCount === null ? "—" : visitorCount.toLocaleString()}</p>
+            </div>
+          </div>
+
 
         {/* Tab switcher */}
         <div className="inline-flex rounded-lg border border-border p-1 gap-1">

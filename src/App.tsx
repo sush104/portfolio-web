@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Home, User, Folder, Briefcase, Code, Mail, BookOpen } from "lucide-react";
 import { Navbar } from "./components/primitives";
@@ -13,6 +14,14 @@ import Admin from "./pages/Admin";
 import "./App.css";
 
 function App() {
+  useEffect(() => {
+    if (sessionStorage.getItem("tracked")) return;
+    const apiBase = (import.meta.env.VITE_API_BASE as string | undefined)?.replace(/\/$/, "");
+    if (!apiBase) return;
+    fetch(`${apiBase}/track`, { method: "POST" }).catch(() => {});
+    sessionStorage.setItem("tracked", "1");
+  }, []);
+
   return (
     <Routes>
       {/* Admin — no navbar */}
