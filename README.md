@@ -1,26 +1,46 @@
 ## About This Portfolio Website
 
-This project is a modern, responsive personal portfolio website built with **React**, **TypeScript**, and **Vite**. It showcases professional experience, blog posts, projects, skills, and contact information — backed by a **fully serverless AWS backend with a password-protected admin panel.**
+**Live at [sushantshelke.com](https://sushantshelke.com)**
+
+This project is a modern, responsive personal portfolio website built with **React**, **TypeScript**, and **Vite**. It showcases professional experience, blog posts, projects, skills, and contact information — backed by a **fully serverless AWS infrastructure with a password-protected admin panel.**
 
 ---
 
 ### Tech Stack
 
-| Layer              | Technology                                                            |
-| ------------------ | --------------------------------------------------------------------- |
-| Framework          | React 19 + TypeScript                                                 |
-| Build tool         | Vite                                                                  |
-| Styling            | Tailwind CSS                                                          |
-| Component explorer | Storybook                                                             |
-| Deployment         | GitHub Pages via GitHub Actions                                       |
-| Database           | AWS DynamoDB (`portfolio-experience`, `portfolio-blogs`)          |
-| File storage       | AWS S3 (`portfolio-images-sush104`) — blog cover images            |
-| API                | AWS API Gateway (HTTP API) + AWS Lambda (Node.js 24,`app.mjs`)      |
-| CI/CD              | GitHub Actions — builds with `VITE_API_BASE` injected from secrets |
+| Layer              | Technology                                                                          |
+| ------------------ | ----------------------------------------------------------------------------------- |
+| Framework          | React 19 + TypeScript                                                               |
+| Build tool         | Vite                                                                                |
+| Styling            | Tailwind CSS                                                                        |
+| Component explorer | Storybook                                                                           |
+| Hosting            | AWS S3 (static files) + CloudFront CDN (HTTPS, global edge)                        |
+| DNS & SSL          | AWS Route 53 + AWS Certificate Manager (ACM)                                        |
+| Database           | AWS DynamoDB (`portfolio-experience`, `portfolio-blogs`)                        |
+| File storage       | AWS S3 (`portfolio-images-sush104`) — blog cover images                          |
+| API                | AWS API Gateway (HTTP API) + AWS Lambda (Node.js 24, `app.mjs`)                  |
+| CI/CD              | GitHub Actions — builds, syncs to S3, and invalidates CloudFront cache on `main` |
 
 ---
 
 ### AWS Architecture
+
+#### Hosting
+
+```
+User's Browser
+      │
+      ▼
+  Route 53 (DNS)
+      │  sushantshelke.com → CloudFront distribution
+      ▼
+  CloudFront CDN  ←── ACM SSL Certificate (HTTPS)
+      │
+      ▼
+  S3 Bucket (static site — dist/ build output)
+```
+
+#### Serverless API
 
 ```
 Browser
@@ -40,13 +60,17 @@ Browser
 
 #### AWS Resources
 
-| Resource        | Name                                                                |
-| --------------- | ------------------------------------------------------------------- |
-| Lambda function | `portfolio-fn`                                                    |
-| DynamoDB table  | `portfolio-experience`                                            |
-| DynamoDB table  | `portfolio-blogs`                                                 |
-| S3 bucket       | `portfolio-images-sush104` (public read, `blog-images/` prefix) |
-| API Gateway     | `portfolio-api` (HTTP API, eu-west-2)                             |
+| Resource           | Name                                                                |
+| ------------------ | ------------------------------------------------------------------- |
+| S3 bucket (site)   | hosts the compiled `dist/` build                                  |
+| CloudFront dist.   | serves site globally over HTTPS with custom domain                  |
+| Route 53           | DNS — `sushantshelke.com` → CloudFront                          |
+| ACM certificate    | SSL/TLS for `sushantshelke.com`                                   |
+| Lambda function    | `portfolio-fn`                                                    |
+| DynamoDB table     | `portfolio-experience`                                            |
+| DynamoDB table     | `portfolio-blogs`                                                 |
+| S3 bucket (images) | `portfolio-images-sush104` (public read, `blog-images/` prefix) |
+| API Gateway        | `portfolio-api` (HTTP API, eu-west-2)                             |
 
 #### Lambda Environment Variables
 
@@ -87,6 +111,8 @@ VITE_ADMIN_PASSWORD=<your-admin-password>
 - 🌙 **Dark/Light Theme Toggle**
 - ✍️ **Blog System:** Travel and tech posts with cover images, tags, and full content stored in DynamoDB
 - 🔐 **Serverless Admin:** Password-protected admin panel backed by API Gateway + Lambda + DynamoDB + S3
+- 🚀 **CI/CD:** `git push` → GitHub Actions builds → syncs hashed assets + `index.html` to S3 → invalidates CloudFront cache → live in seconds
+- 🌍 **Global CDN:** CloudFront edge caching with long-lived cache headers for hashed assets and no-cache for `index.html`
 
 ---
 
@@ -106,6 +132,9 @@ VITE_ADMIN_PASSWORD=<your-admin-password>
 
 ```
 portfolio-web/
+├── .github/
+│   └── workflows/
+│       └── deploy-aws.yml      # CI/CD: build → S3 sync → CloudFront invalidation
 ├── aws/
 │   └── lambda/
 │       └── app.js              # Reference copy of Lambda (deployed as app.mjs)
