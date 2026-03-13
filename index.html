@@ -9,24 +9,7 @@
       content="Sushant Shelke's portfolio - Web Developer specializing in React, TypeScript, and modern web technologies"
     />
     <title>Sushant Shelke | Portfolio</title>
-    <script>
-      // SPA redirect: restore path from query parameter (set by 404.html)
-      (function (l) {
-        if (l.search[1] === 'p') {
-          var decoded = l.search.slice(1).split('&').reduce(function (q, range) {
-            var parts = range.split('=');
-            q[parts[0]] = parts.slice(1).join('=').replace(/~and~/g, '&');
-            return q;
-          }, {});
-          window.history.replaceState(
-            null, null,
-            l.pathname.slice(0, -1) + (decoded.p ? '/' + decoded.p : '') +
-            (decoded.q ? '?' + decoded.q : '') +
-            l.hash
-          );
-        }
-      }(window.location));
-    </script>
+
   </head>
   <body>
     <div id="root"></div>

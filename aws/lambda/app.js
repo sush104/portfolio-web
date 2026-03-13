@@ -13,7 +13,7 @@ import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 const EXPERIENCE_TABLE = process.env.EXPERIENCE_TABLE_NAME || "portfolio-experience";
 const BLOGS_TABLE = process.env.BLOGS_TABLE_NAME || "portfolio-blogs";
 const IMAGES_BUCKET = process.env.IMAGES_BUCKET_NAME || "portfolio-images-sush104";
-const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || "https://sush104.github.io";
+const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || "https://www.sushantshelke.com";
 const ADMIN_KEY = process.env.ADMIN_KEY || "";
 const LOCAL_ORIGINS = ["http://localhost:5173"];
 

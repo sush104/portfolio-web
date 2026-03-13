@@ -11,12 +11,9 @@ const dirname =
     ? __dirname
     : path.dirname(fileURLToPath(import.meta.url));
 
-// Dynamic base: use root for dev, repo subpath for production (GitHub Pages)
-export default defineConfig(({ command }) => {
-  const base = command === "serve" ? "/" : "/portfolio-web/";
-
+export default defineConfig(() => {
   return {
-    base,
+    base: "/",
     plugins: [react()],
     resolve: {
       alias: {

@@ -3,16 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>Sushant Shelke | Portfolio</title>
-    <script>
-      var l = window.location;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        '/portfolio-web/' +
-        '?p=' + l.pathname.slice(1).split('/').slice(1).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
-      );
-    </script>
+    <!-- CloudFront is configured to serve index.html for 403/404 errors,
+         so this file is only a fallback in case of direct S3 access. -->
+    <script>window.location.replace("/");</script>
   </head>
   <body></body>
 </html>
